@@ -2,9 +2,8 @@
 
 class Common
 {
-
-	public function pp (){
-		$file_name = 'file.txt';
+	public static function pp (){
+		$file_name = '../log/file.log';
 
 		touch($file_name);
 	}
