@@ -12,9 +12,9 @@ class TopContrllor{
 
 <?php
 
-require 'Common.class.php';
-require '../smarty-3.1.23/libs/Smarty.class.php';
-//ini_set( 'display_errors', 1 );
+require_once 'Common.class.php'; 
+require_once '../smarty-3.1.23/libs/Smarty.class.php';
+ini_set( 'display_errors', 1 );
 
 $test = 1;
 $html = 'top.htm';
@@ -32,17 +32,7 @@ if($_GET['new']){
 	$top->new_entry();
 }
 
-//ログイン
-if($_POST['login']){
-	$html = 'top_login.htm';
-}
-
-$smarty = new Smarty();
-
-$smarty->template_dir = dirname(__FILE__).'/templates';
-$smarty->compile_dir = dirname(__FILE__).'/templates_c';
-
-$smarty->assign('name','TOP');
-$smarty->display($html);
+Common::pp($test);
+Common::gotoTemplate('TOP', $html);
 
 ?>

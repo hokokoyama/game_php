@@ -1,8 +1,10 @@
+<?php
+?>
+
 <html>
 <head>
 <title>TOP</title>
 <body>
-{$data}
 
 <form action="#" method="post">
 USERID<input type="text" name="uid"></br>

@@ -24,5 +24,21 @@ class Common
     fwrite($fp, $content);
     fclose($fp);
   }
+
+  /*
+   *templateファイル呼び出し
+   *@param $data - templateに渡す値
+   *@param $name - 呼び出すテンプレート名
+   */
+  public static function gotoTemplate($data, $name){
+  	//Smartyの準備
+  	$smarty = new Smarty();
+
+	$smarty->template_dir = dirname(__FILE__).'/templates';
+	$smarty->compile_dir = dirname(__FILE__).'/templates_c';
+
+	$smarty->assign('data',$data);
+	$smarty->display($name);
+  }
 }
 ?>
