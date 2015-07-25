@@ -1,19 +1,34 @@
 <?php
-class TopContrllor{
+require_once '../smarty-3.1.23/libs/Smarty.class.php';
+require_once 'Common.class.php';
+require_once 'models/db/UserBasicData.class.php';
 
-	public function new_entry(){
-		require_once 'models/db/UserBasicData.class.php';		
-		$userBasicData = new UserBasicData();
-		$userBasicData->InsertUserData();
-	}	
+class Top{
+	/**
+	 * トップ画面
+	 */
+	public function topView(){
+
+	}
+	/**
+	 * 新規登録
+	 */
+	public function newEntry(){
+		$data = array();
+		echo __FILE__;
+		Common::gotoTemplate($data, 'newEntry.htm');
+	}
+
+	public function entryData(){
+		$data = array();
+		
+		Common::gotoTemplate($data, 'entryData.htm');	
+	}
 }
 
 ?>
 
-<?php
-
-require_once 'Common.class.php'; 
-require_once '../smarty-3.1.23/libs/Smarty.class.php';
+<?php 
 ini_set( 'display_errors', 1 );
 
 $test = 1;
@@ -26,13 +41,7 @@ try{
 	Common::pp($test);	
 }
 
-//新規登録
-if($_GET['new']){
-	$top = new TopContrllor();
-	$top->new_entry();
-}
-
 Common::pp($test);
-Common::gotoTemplate('TOP', $html);
+//Common::gotoTemplate('TOP', $html);
 
 ?>
